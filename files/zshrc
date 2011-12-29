@@ -1,0 +1,86 @@
+#
+# options
+#
+setopt auto_cd     # auto change directory
+setopt auto_pushd  # auto directory pushd that you can get dirs list by cd -[tab]
+setopt correct     # command correct edition before each completion attempt
+setopt list_packed # compacked complete list display
+setopt nolistbeep  # no beep sound when complete list displayed
+
+#
+# aliases
+#
+alias ls='ls -G'
+alias ll='ls -l'
+alias la='ll -a'
+alias h='history'
+alias h0='h 0'
+alias hg='nocorrect hg'
+
+#
+# vim like keyboard
+#
+bindkey -v
+
+#
+# 補完機能
+#
+autoload -U compinit
+compinit
+
+#
+# prompt setting
+#
+export PROMPT="%n@%m%% " # prompt
+export RPROMPT="[%/]"    # right prompt
+
+#
+# historical backward/forward search with linehead string binded to ^P/^N
+#
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
+#
+# command history configuration
+#
+HISTFILE=~/.zsh_history     # history file
+HISTSIZE=100000             # history size
+SAVEHIST=100000             # history size
+setopt hist_ignore_dups     # ignore duplication command history list
+setopt share_history        # share command history data
+
+#
+# Suvbertion settings
+#
+export SVN_EDITOR=/usr/bin/vim
+
+#
+# Homebrew settings
+#
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+#
+# node.js settings
+#
+export NODE_PATH=/usr/local/lib/node
+
+#
+# pythonbrew settings
+#
+source $HOME/.pythonbrew/etc/bashrc
+
+#
+# rbenv settings
+#
+eval "$(rbenv init -)"
+
+# bundle exec
+alias be='bundle exec'
+
+#
+# Editor settings
+#
+export EDITOR=/usr/bin/vim
