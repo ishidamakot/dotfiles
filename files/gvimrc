@@ -1,0 +1,17 @@
+" フォントとアンチエイリアス
+set guifont=Ricty\ Regular:h18
+set antialias
+
+" ツールバーを非表示
+set guioptions-=T
+
+" 背景色とカラースキーマと背景の透明度
+set background=dark
+colorscheme torte
+set transparency=10
+
+" スクロールバーを非表示
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
