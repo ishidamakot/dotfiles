@@ -1,0 +1,13 @@
+# 入力補完
+require 'irb/completion'
+
+# pp(pretty-print)
+require 'pp'
+
+# 自動インデント
+IRB.conf[:AUTO_INDENT]=true
+
+# 実行結果に色をつける( gem install wirble )
+require 'wirble'
+Wirble.init
+Wirble.colorize
