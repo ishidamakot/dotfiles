@@ -1,3 +1,6 @@
+# environment
+export LANG=ja_JP.UTF-8
+
 #
 # options
 #
@@ -70,12 +73,16 @@ export NODE_PATH=/usr/local/lib/node
 #
 # pythonbrew settings
 #
-source $HOME/.pythonbrew/etc/bashrc
+if [ -f $HOME/.pythonbrew/etc/bashrc ]; then
+  source $HOME/.pythonbrew/etc/bashrc
+fi
 
 #
 # rbenv settings
 #
-eval "$(rbenv init -)"
+if [ -d $HOME/.rbenv ]; then
+  eval "$(rbenv init -)"
+fi
 
 # bundle exec
 alias be='bundle exec'
@@ -84,3 +91,9 @@ alias be='bundle exec'
 # Editor settings
 #
 export EDITOR=/usr/bin/vim
+
+#
+# Java options
+#
+export ANT_OPTS="-Dfile.encoding=UTF-8"
+export MAVEN_OPTS="-Dfile.encoding=UTF-8"
