@@ -81,7 +81,7 @@ fi
 # rbenv settings
 #
 if [ -d $HOME/.rbenv ]; then
-  eval "$(rbenv init -)"
+  which rbenv > /dev/null && eval "$(rbenv init -)"
 fi
 
 # bundle exec
@@ -97,3 +97,11 @@ export EDITOR=/usr/bin/vim
 #
 export ANT_OPTS="-Dfile.encoding=UTF-8"
 export MAVEN_OPTS="-Dfile.encoding=UTF-8"
+
+#
+# maven settings
+#
+if [ -f $HOME/work/application/maven ]; then
+  export MAVEN_HOME=$HOME/work/application/maven
+  export PATH=$MAVEN_HOME/bin:$PATH
+fi
